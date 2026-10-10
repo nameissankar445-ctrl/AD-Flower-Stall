@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Policies — AD Flower Stall</title>
+<meta name="robots" content="noindex"/>
+<link rel="icon" href="assets/img/logo.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/luxe.css"/>
+<style>
+.ph{background:linear-gradient(120deg,var(--navy-3),var(--navy));color:#fff;padding:4rem 0;text-align:center}
+.ph h1{color:#fff;font-size:clamp(2.4rem,5vw,3.8rem)}.ph p{color:#b9c4e3;margin-top:.6rem}
+.lg{display:grid;grid-template-columns:240px 1fr;gap:3rem;padding:4rem 0}
+.lg nav{position:sticky;top:110px;align-self:start;display:grid;gap:.4rem}
+.lg nav a{padding:.65rem 1rem;border-radius:12px;color:var(--navy);font-weight:500}
+.lg nav a:hover{background:var(--gold-3)}
+.lg section{background:#fff;border:1px solid #efe5c9;border-radius:20px;padding:2rem 2.2rem;margin-bottom:1.5rem;scroll-margin-top:110px}
+.lg h2{font-size:2rem;margin-bottom:.8rem}.lg h3{font-size:1.3rem;margin:1.2rem 0 .3rem}
+.lg p,.lg li{color:var(--muted);margin-bottom:.6rem}.lg ul{padding-left:1.2rem}
+.note{background:var(--gold-3);border-radius:12px;padding:.8rem 1rem;color:#5a4410;font-size:.88rem;margin-bottom:1.5rem}
+@media(max-width:800px){.lg{grid-template-columns:1fr}.lg nav{position:static;grid-auto-flow:column;overflow:auto}}
+</style>
+</head>
+<body>
+<header class="header"><div class="wrap nav"><a href="index.html" class="logo"><img src="assets/img/logo.png" alt="AD Flower Stall"/></a><a class="btn btn-navy" href="index.html">← Back to shop</a></div></header>
+<div class="ph"><h1>Our Policies</h1><p>Last updated: <span id="d"></span></p></div>
+<div class="wrap lg">
+  <nav><a href="#privacy">Privacy Policy</a><a href="#terms">Terms of Service</a><a href="#cookies">Cookie Policy</a><a href="#delivery">Delivery &amp; Refunds</a></nav>
+  <div>
+    <div class="note">Draft template — please review and confirm the business details (name, address, contact) before publishing.</div>
+    <section id="privacy"><h2>Privacy Policy</h2>
+      <p>AD Flower Stall ("we", "us") respects your privacy. This policy explains what we collect and how we use it.</p>
+      <h3>What we collect</h3><ul><li>Name, phone number and delivery address when you place an enquiry or order.</li><li>Order details (flowers, quantities, occasion, date).</li><li>Basic site usage data, only if you accept analytics cookies.</li></ul>
+      <h3>How we use it</h3><ul><li>To confirm, prepare and deliver your order.</li><li>To contact you about your order on WhatsApp.</li><li>To send offers — only if you opt in. You can opt out any time.</li></ul>
+      <h3>Sharing &amp; your rights</h3><p>We never sell your data. We share it only with delivery partners where needed to complete your order. You may ask us to access, correct or delete your information by contacting us.</p></section>
+    <section id="terms"><h2>Terms of Service</h2>
+      <ul><li>Prices shown are indicative and may change with market rates; the final price is confirmed when you order.</li><li>Flowers are natural products — colour, size and variety may vary slightly from photos.</li><li>Orders are confirmed only after we reply on WhatsApp.</li><li>For weddings and events, a booking advance may be required.</li></ul></section>
+    <section id="cookies"><h2>Cookie Policy</h2>
+      <p>Cookies are small files stored in your browser. We use them to make the site work and, with your consent, to understand how it is used.</p>
+      <h3>Essential</h3><p>Keep your order basket and wishlist and remember your cookie choice. Always on.</p>
+      <h3>Analytics</h3><p>Help us see which pages and flowers are popular. Only used if you accept.</p>
+      <h3>Marketing</h3><p>Used to show relevant offers. Only used if you accept.</p>
+      <p>You can change your choice any time using <b>Cookie Settings</b> in the site footer, or by clearing your browser data.</p></section>
+    <section id="delivery"><h2>Delivery &amp; Refunds</h2>
+      <ul><li><b>Delivery:</b> same-day local delivery on request. Delivery charges depend on distance and are confirmed when you order.</li><li><b>Freshness promise:</b> if flowers arrive damaged or not fresh, message us with a photo within 2 hours of delivery and we will replace them or refund you.</li><li><b>Cancellations:</b> custom and event orders cannot be cancelled once preparation has started.</li></ul></section>
+  </div>
+</div>
+<script>document.getElementById('d').textContent=new Date().toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'})</script>
+</body>
+</html>

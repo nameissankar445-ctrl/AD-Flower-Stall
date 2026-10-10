@@ -1,0 +1,9 @@
+{
+  "name": "ad-flower-stall",
+  "version": "1.0.0",
+  "description": "AD Flower Stall - Beautiful floral website",
+  "scripts": {
+    "dev": "npx serve . -p 3030 --no-clipboard",
+    "start": "npx serve . -p 3030 --no-clipboard"
+  }
+}

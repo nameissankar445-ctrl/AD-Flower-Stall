@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>AD Flower Stall — Fresh Flowers, Bouquets &amp; Garlands</title>
+<meta name="description" content="Shop fresh roses, bouquets and seasonal flowers from AD Flower Stall. Weddings, pujas and every celebration — order on WhatsApp."/>
+<meta name="theme-color" content="#0B2559"/>
+<link rel="icon" href="assets/img/logo.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/luxe.css"/>
+<link rel="stylesheet" href="css/shop.css"/>
+<link rel="stylesheet" href="css/chrome.css"/>
+<link rel="stylesheet" href="css/home.css"/>
+<link rel="stylesheet" href="css/refine.css"/>
+
+<style id="loader-css">
+#loader{position:fixed;inset:0;z-index:9999;visibility:visible}
+#loader .lo-p{position:absolute;left:0;right:0;height:50.5%;background:#071a40;transition:transform 1s cubic-bezier(.77,0,.18,1) .15s;z-index:1}
+#loader .lo-t{top:0;background:radial-gradient(900px 500px at 50% 100%,#12307a 0%,#071a40 70%)}
+#loader .lo-b{bottom:0;background:radial-gradient(900px 500px at 50% 0,#12307a 0%,#071a40 70%)}
+#loader .lo-c{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.1rem;transition:opacity .45s,transform .6s;text-align:center;padding:1rem}
+#loader.done .lo-t{transform:translateY(-101%)}
+#loader.done .lo-b{transform:translateY(101%)}
+#loader.done .lo-c{opacity:0;transform:scale(.92)}
+#loader.gone{visibility:hidden}
+.lo-flower{width:132px;height:132px;overflow:visible;animation:lospin 16s linear infinite}
+.lo-flower .lp{fill:none;stroke:#E6C066;stroke-width:1.6;transform-origin:60px 60px;transform:rotate(var(--r)) scale(0);animation:lobloom .9s cubic-bezier(.34,1.56,.64,1) var(--d) forwards,lobreath 3s ease-in-out calc(var(--d) + 1s) infinite;fill:rgba(230,192,102,.14)}
+.lo-flower .lc{fill:#E6C066;transform-origin:60px 60px;transform:scale(0);animation:lobloom .7s cubic-bezier(.34,1.56,.64,1) .75s forwards}
+.lo-logo{opacity:0;transform:translateY(14px);animation:loup .8s cubic-bezier(.22,1,.36,1) .5s forwards}
+.lo-logo img{height:92px;width:auto;display:block;filter:drop-shadow(0 8px 22px rgba(0,0,0,.35))}
+.lo-sub{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:1.3rem;color:#F6E7BD;letter-spacing:.04em;opacity:0;animation:loup .8s ease .8s forwards}
+.lo-prog{display:flex;align-items:center;gap:.9rem;color:#E6C066;font-family:'Jost',system-ui,sans-serif;font-size:.85rem;letter-spacing:.2em;opacity:0;animation:loup .6s ease 1s forwards}
+.lo-bar{width:min(220px,60vw);height:3px;background:rgba(255,255,255,.14);border-radius:3px;overflow:hidden}
+.lo-bar i{display:block;height:100%;width:100%;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,#C99A33,#F6E7BD);border-radius:3px}
+.lo-prog b{font-weight:500;min-width:3.2ch;text-align:right;font-variant-numeric:tabular-nums}
+@keyframes lobloom{to{transform:rotate(var(--r,0deg)) scale(1)}}
+@keyframes lobreath{50%{transform:rotate(var(--r)) scale(1.07)}}
+@keyframes lospin{to{transform:rotate(360deg)}}
+@keyframes loup{to{opacity:1;transform:none}}
+body.loading{overflow:hidden}
+@media(prefers-reduced-motion:reduce){.lo-flower{animation:none}}
+</style>
+</head>
+<body>
+<div id="loader" role="status" aria-label="Loading AD Flower Stall">
+  <div class="lo-p lo-t"></div><div class="lo-p lo-b"></div>
+  <div class="lo-c">
+    <svg class="lo-flower" viewBox="0 0 120 120" aria-hidden="true"><ellipse class="lp" style="--r:0deg;--d:0.00s" cx="60" cy="31" rx="9" ry="23"/><ellipse class="lp" style="--r:45deg;--d:0.09s" cx="60" cy="31" rx="9" ry="23"/><ellipse class="lp" style="--r:90deg;--d:0.18s" cx="60" cy="31" rx="9" ry="23"/><ellipse class="lp" style="--r:135deg;--d:0.27s" cx="60" cy="31" rx="9" ry="23"/><ellipse class="lp" style="--r:180deg;--d:0.36s" cx="60" cy="31" rx="9" ry="23"/><ellipse class="lp" style="--r:225deg;--d:0.45s" cx="60" cy="31" rx="9" ry="23"/><ellipse class="lp" style="--r:270deg;--d:0.54s" cx="60" cy="31" rx="9" ry="23"/><ellipse class="lp" style="--r:315deg;--d:0.63s" cx="60" cy="31" rx="9" ry="23"/><circle class="lc" cx="60" cy="60" r="7"/></svg>
+    <div class="lo-logo"><img src="assets/img/logo-light.png" alt="AD Flower Stall"/></div>
+    <div class="lo-sub">Freshly blooming for you…</div>
+    <div class="lo-prog"><div class="lo-bar"><i id="loBar"></i></div><b id="loNum">0%</b></div>
+  </div>
+</div>
+<script>(function(){
+  var L=document.getElementById('loader'),num=document.getElementById('loNum'),bar=document.getElementById('loBar'),b=document.body;
+  b.classList.add('loading');
+  var t0=Date.now(),MIN=1900,loaded=false,p=0,fin=false;
+  addEventListener('load',function(){loaded=true});
+  setTimeout(function(){loaded=true},6000);
+  function set(v){p=v;num.textContent=Math.round(v)+'%';bar.style.transform='scaleX('+(v/100)+')'}
+  (function step(){
+    var el=Date.now()-t0,target=loaded&&el>=MIN?100:Math.min(92,el/MIN*92);
+    p+=(target-p)*0.12; if(target===100&&p>99.4)p=100;
+    set(p);
+    if(p>=100&&!fin){fin=true;setTimeout(function(){L.classList.add('done');b.classList.remove('loading');setTimeout(function(){L.classList.add('gone');L.remove()},1300)},250);return}
+    requestAnimationFrame(step);
+  })();
+})();</script>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.5s-8-4.8-8-11A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 8 2.5c0 6.2-8 11-8 11z"/></symbol>
+<symbol id="i-cart" viewBox="0 0 24 24"><path d="M3 4h2.5l2.2 11h10.6l2-8H6.5"/><circle cx="9" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+<symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 6h11v10H2zM13 10h4l3 3v3h-7"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/></symbol>
+<symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19C5 10 10 5 20 4c0 10-4 15-13 15M5 19c3-5 6-8 10-10"/></symbol>
+<symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"/><rect x="5" y="12" width="14" height="8" rx="1"/><path d="M12 8v12M12 8C10 3.5 6 4.5 7.5 8M12 8c2-4.5 6-3.5 4.5 0"/></symbol>
+<symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M11 3l2 5.5L18.5 10 13 12l-2 5.5L9 12 3.5 10 9 8.5z"/><path d="M19 16l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></symbol>
+<symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.3-.15-1.263-.465-2.403-1.485-.888-.795-1.484-1.77-1.66-2.07-.174-.3-.019-.465.13-.615.136-.135.301-.345.451-.52.146-.181.194-.301.297-.496.1-.21.049-.375-.025-.524-.075-.15-.672-1.62-.922-2.206-.24-.584-.487-.51-.672-.51-.172-.015-.371-.015-.571-.015-.2 0-.523.074-.797.359-.273.3-1.045 1.02-1.045 2.475s1.07 2.865 1.219 3.075c.149.18 2.095 3.195 5.076 4.483.709.3 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.696.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></symbol>
+<symbol id="i-cookie" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9 4 4 0 0 1-4-4 4 4 0 0 1-5-5z"/><circle cx="9" cy="10" r=".8"/><circle cx="14" cy="15" r=".8"/><circle cx="8.5" cy="15" r=".8"/></symbol>
+<symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></symbol>
+<symbol id="i-flower" viewBox="0 0 24 24"><circle cx="12" cy="11" r="2.2"/><path d="M12 8.8C12 5.5 13.5 4 15.5 4c.3 2.8-1.2 4.6-3.5 4.8M12 8.8C12 5.5 10.5 4 8.5 4c-.3 2.8 1.2 4.6 3.5 4.8M14.2 11c3.3 0 5 1.5 5.3 3.5-2.8.5-4.8-.8-5.5-3M9.8 11C6.5 11 4.8 12.5 4.5 14.5c2.8.5 4.8-.8 5.5-3M12 13.2V21"/></symbol>
+<symbol id="i-bouquet" viewBox="0 0 24 24"><path d="M12 10c-3 0-5-2-5-5 3 0 5 2 5 5zM12 10c3 0 5-2 5-5-3 0-5 2-5 5zM12 10v3M6.5 13h11L12 21z"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1"/></symbol>
+<symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+</svg>
+
+<div class="topbar"><div class="wrap">
+  <div class="tb-l"><span class="live"><i></i>Open now · 6 AM – 9 PM</span><span class="hide-m"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg> Rythu Bazar, Near NTR Bus Stand, Guntur</span></div>
+  <div class="tb-r"><a href="#contact">Bulk Orders</a><a href="#contact">Weddings</a><a href="#blog">Care Tips</a><a href="https://wa.me/919949179933?text=Hi%2C%20I%20want%20to%20track%20my%20order" target="_blank" rel="noopener">Track Order</a><a href="https://wa.me/919949179933" target="_blank" rel="noopener" class="tb-ph"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> +91 99491 79933</a></div>
+</div></div>
+
+<header class="header" id="header"><div class="wrap nav">
+  <a href="#home" class="logo" aria-label="AD Flower Stall"><img src="assets/img/logo.png" alt="AD Flower Stall logo"/></a>
+  <ul class="menu" id="menu">
+    <li><a href="#home" class="on">Home</a></li>
+    <li class="dd"><a href="#shop">Shop <small>▾</small></a>
+      <div class="dd-menu"><a href="#shop" data-cat="Roses"><svg class="ic" aria-hidden="true"><use href="#i-flower"/></svg> Roses</a><a href="#shop" data-cat="Bouquets"><svg class="ic" aria-hidden="true"><use href="#i-bouquet"/></svg> Bouquets</a><a href="#shop" data-cat="Seasonal"><svg class="ic" aria-hidden="true"><use href="#i-sun"/></svg> Seasonal</a><a href="#shop" data-cat="Gifts"><svg class="ic" aria-hidden="true"><use href="#i-gift"/></svg> Gift Flowers</a><a href="#shop" data-cat="all">View all →</a></div></li>
+    <li><a href="#categories">Categories</a></li>
+    <li><a href="#deal">Offers</a></li>
+    <li><a href="#blog">Care Tips</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="icons">
+    <button class="ib" id="sBtn" aria-label="Search"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg></button>
+    <button class="ib" id="wBtn" aria-label="Wishlist"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg><b id="wcnt">0</b></button>
+    <button class="ib" id="cBtn" aria-label="Open order"><svg class="ic" aria-hidden="true"><use href="#i-cart"/></svg><b id="cnt">0</b></button>
+    <a class="btn btn-navy nav-cta" href="https://wa.me/919949179933?text=Hello%20AD%20Flower%20Stall%2C%20I%20would%20like%20to%20order." target="_blank" rel="noopener">Order on WhatsApp →</a>
+    <button class="burger" id="burger" aria-label="Menu"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg></button>
+  </div>
+  <div class="search" id="search"><div class="wrap"><input id="sInput" placeholder="Search flowers — roses, tulips, bouquet…"/></div></div>
+</div></header>
+
+<!-- HERO SLIDER -->
+<!-- ===== HERO ===== -->
+<section class="hero2" id="home">
+  <canvas id="petals" aria-hidden="true"></canvas>
+  <div class="wrap h2-grid">
+    <div class="h2-copy">
+      <span class="h-pill"><i></i>Fresh from Rythu Bazar, Guntur</span>
+      <h1>Fresh flowers for every <span class="rot-wrap"><span class="rot" id="rot">wedding</span></span> moment.</h1>
+      <p class="h-lead">Hand-picked at dawn, arranged by hand and delivered the same day. Order in a minute on WhatsApp — we'll take care of the rest.</p>
+      <div class="h-cta">
+        <a href="#shop" class="btn btn-gold">Shop Flowers →</a>
+        <a href="https://wa.me/919949179933?text=Hello%20AD%20Flower%20Stall%2C%20I%20would%20like%20to%20order%20flowers." target="_blank" rel="noopener" class="btn btn-line"><svg class="ic"><use href="#i-whatsapp"/></svg> Order on WhatsApp</a>
+      </div>
+      <ul class="h-trust">
+        <li><svg class="ic"><use href="#i-leaf"/></svg><span><b>Fresh daily</b>Bought every morning</span></li>
+        <li><svg class="ic"><use href="#i-truck"/></svg><span><b>Same-day</b>Delivery in Guntur</span></li>
+        <li><svg class="ic"><use href="#i-sparkle"/></svg><span><b>Custom</b>Weddings &amp; events</span></li>
+      </ul>
+    </div>
+    <div class="hv" id="hv">
+      <div class="hv-ring"></div>
+      <div class="hv-img hv-a" data-d="14"><img src="assets/img/bouquet-garden.jpg" alt="Hand-tied garden bouquet" fetchpriority="high"/></div>
+      <div class="hv-img hv-b" data-d="26"><img src="assets/img/roses-pink.jpg" alt="Pink garden roses"/></div>
+      <div class="hv-img hv-c" data-d="20"><img src="assets/img/tulips-jar.jpg" alt="Pink tulips in a jar"/></div>
+      <div class="hv-badge" data-d="10">
+        <svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="circ" d="M60 60m-44 0a44 44 0 1 1 88 0a44 44 0 1 1-88 0"/></defs>
+          <text><textPath href="#circ" startOffset="0" textLength="270" lengthAdjust="spacing">FRESH • FRAGRANT • HANDCRAFTED •</textPath></text></svg>
+        <svg class="ic mid"><use href="#i-flower"/></svg>
+      </div>
+      <div class="chip chip-open"><i></i><span><b>Open now</b>6 AM – 9 PM daily</span></div>
+      <button class="chip chip-pick" id="pickBtn" aria-label="Add today's pick to your order">
+        <img src="assets/img/rose-red.jpg" alt=""/><span><small>Today's pick</small><b>Classic Red Roses</b>₹349</span><em>+</em>
+      </button>
+    </div>
+  </div>
+  <a href="#categories" class="scroll-cue" aria-label="Scroll down"><span></span></a>
+</section>
+
+<div class="marquee"><div class="marquee-track" id="marq"></div></div>
+
+<!-- ===== CATEGORIES ===== -->
+<section class="sec" id="categories"><div class="wrap">
+  <div class="sec-head c rv-in"><span class="eyebrow c">Collections</span><h2>Find the <em class="gold-text">perfect bloom</em></h2><p>Pick a collection to see what's fresh today.</p></div>
+  <div class="acc" id="acc">
+    <a href="#shop" class="ac on" data-f="Roses"><img src="assets/img/rose-red.jpg" alt="Roses" loading="lazy"/><div class="ac-t"><span>01</span><h3>Roses</h3><p>Red, pink and rainbow — classic romance.</p><b>Shop roses →</b></div></a>
+    <a href="#shop" class="ac" data-f="Bouquets"><img src="assets/img/bouquet-dark.jpg" alt="Bouquets" loading="lazy"/><div class="ac-t"><span>02</span><h3>Bouquets</h3><p>Designer hand-tied bouquets for every occasion.</p><b>Shop bouquets →</b></div></a>
+    <a href="#shop" class="ac" data-f="Seasonal"><img src="assets/img/tulips-field.jpg" alt="Seasonal flowers" loading="lazy"/><div class="ac-t"><span>03</span><h3>Seasonal</h3><p>Tulips, sunflowers and the best of the season.</p><b>Shop seasonal →</b></div></a>
+    <a href="#shop" class="ac" data-f="Gifts"><img src="assets/img/heart-bouquet.jpg" alt="Gift flowers" loading="lazy"/><div class="ac-t"><span>04</span><h3>Gifts</h3><p>Flowers that say thank you, sorry and I love you.</p><b>Shop gifts →</b></div></a>
+    <a href="#occasions" class="ac" data-f=""><img src="assets/img/bouquet-peach.jpg" alt="Weddings and events" loading="lazy"/><div class="ac-t"><span>05</span><h3>Weddings</h3><p>Bridal bouquets, garlands and stage décor.</p><b>Plan yours →</b></div></a>
+  </div>
+</div></section>
+
+<!-- ===== SHOP ===== -->
+<section class="sec prod-bg" id="shop"><div class="wrap">
+  <div class="sec-head c rv-in"><span class="eyebrow c">Our products</span><h2>Today's <em class="gold-text">fresh arrivals</em></h2><p>Tap a flower for a closer look, then add it to your order — we'll confirm on WhatsApp.</p></div>
+  <div class="tabs" id="tabs"><button class="tab on" data-f="all">All</button><button class="tab" data-f="New">New Arrivals</button><button class="tab" data-f="Best">Best Sellers</button><button class="tab" data-f="Sale">On Sale</button></div>
+  <div class="prod-grid" id="grid"></div>
+  <p id="none" style="text-align:center;color:var(--muted);display:none;margin-top:2rem">No flowers match your search.</p>
+</div></section>
+
+<!-- ===== WHY US ===== -->
+<section class="sec why2" id="why"><div class="wrap why2-grid">
+  <div class="why2-img rv-in">
+    <div class="w-arch"><img src="assets/img/roses-rainbow.jpg" alt="Colourful roses at the stall" loading="lazy"/></div>
+    <div class="w-card"><svg class="ic"><use href="#i-leaf"/></svg><div><b>Picked this morning</b><span>Never stored for days</span></div></div>
+    <div class="w-circ"><img src="assets/img/begonia-red.jpg" alt="" loading="lazy"/></div>
+  </div>
+  <div class="rv-in">
+    <span class="eyebrow">Why AD Flower Stall</span>
+    <h2>A stall you can <em class="gold-text">trust</em>, flowers you'll love</h2>
+    <p class="sub">From our stall at Rythu Bazar to your doorstep — fresh stock, fair prices and a personal touch with every order.</p>
+    <ul class="why2-list">
+      <li><i><svg class="ic"><use href="#i-leaf"/></svg></i><div><b>Farm-fresh, every day</b><span>We buy fresh each morning and sell only what we'd gift ourselves.</span></div></li>
+      <li><i><svg class="ic"><use href="#i-sparkle"/></svg></i><div><b>Designed your way</b><span>Share your colours and budget — we'll craft something special.</span></div></li>
+      <li><i><svg class="ic"><use href="#i-truck"/></svg></i><div><b>Same-day delivery</b><span>Prompt delivery across Guntur, arranged on WhatsApp.</span></div></li>
+      <li><i><svg class="ic"><use href="#i-whatsapp"/></svg></i><div><b>Order in a minute</b><span>No sign-ups. Just pick, send on WhatsApp and relax.</span></div></li>
+    </ul>
+  </div>
+</div></section>
+
+<section class="deal2" id="deal"><div class="wrap"><div class="d2 rv-in">
+  <div class="d2-txt">
+    <span class="eyebrow">Deal of the day</span>
+    <h2>Garden Bouquet <em class="gold-text">20% off</em></h2>
+    <p>Roses, eucalyptus and seasonal blooms, hand-tied at a special price — until the timer ends.</p>
+    <div class="cd" id="cd"><div><b id="h">00</b><span>Hours</span></div><div><b id="m">00</b><span>Mins</span></div><div><b id="s">00</b><span>Secs</span></div></div>
+    <button class="btn btn-gold" id="dealBtn">Add to order →</button>
+  </div>
+  <div class="d2-img"><img src="assets/img/bouquet-garden.jpg" alt="Garden bouquet" loading="lazy"/><span class="d2-off">20%<small>OFF</small></span></div>
+</div></div></section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="sec steps" id="how"><div class="wrap">
+  <div class="sec-head c rv-in"><span class="eyebrow c">How it works</span><h2>Three simple <em class="gold-text">steps</em></h2></div>
+  <div class="st-grid">
+    <div class="st rv-in"><span class="n">01</span><i><svg class="ic"><use href="#i-search"/></svg></i><h3>Choose your flowers</h3><p>Browse the shop and add your favourites to your order.</p></div>
+    <div class="st rv-in"><span class="n">02</span><i><svg class="ic"><use href="#i-whatsapp"/></svg></i><h3>Send on WhatsApp</h3><p>One tap sends your order to us — already written out with the total.</p></div>
+    <div class="st rv-in"><span class="n">03</span><i><svg class="ic"><use href="#i-truck"/></svg></i><h3>Receive fresh blooms</h3><p>We confirm, arrange and deliver or keep it ready for pickup.</p></div>
+  </div>
+</div></section>
+
+<!-- ===== OCCASIONS ===== -->
+<section class="sec occ2" id="occasions"><div class="wrap">
+  <div class="sec-head c rv-in"><span class="eyebrow c">Occasions</span><h2>Flowers for every <em class="gold-text">celebration</em></h2></div>
+  <div class="oc-tabs" id="ocTabs" role="tablist">
+    <button class="on" data-i="0" role="tab">Weddings</button><button data-i="1" role="tab">Pujas &amp; Festivals</button><button data-i="2" role="tab">Birthdays</button><button data-i="3" role="tab">Anniversaries</button>
+  </div>
+  <div class="oc-panel" id="ocPanel">
+    <div class="oc-img"><img id="ocImg" src="assets/img/bouquet-peach.jpg" alt=""/></div>
+    <div class="oc-txt">
+      <h3 id="ocH">Weddings</h3>
+      <p id="ocP"></p>
+      <ul id="ocL"></ul>
+      <a id="ocA" class="btn btn-gold" href="#" target="_blank" rel="noopener"><svg class="ic"><use href="#i-whatsapp"/></svg> Get a quote on WhatsApp</a>
+    </div>
+  </div>
+</div></section>
+
+<!-- ===== GALLERY ===== -->
+<section class="sec gal2" id="gallery"><div class="wrap">
+  <div class="sec-head c rv-in"><span class="eyebrow c">Gallery</span><h2>A little <em class="gold-text">inspiration</em></h2></div>
+  <div class="mosaic rv-in" id="mosaic">
+    <button class="m1" data-s="assets/img/tulips-jar.jpg"><img src="assets/img/tulips-jar.jpg" alt="Pink tulips" loading="lazy"/></button>
+    <button data-s="assets/img/sunflowers.jpg"><img src="assets/img/sunflowers.jpg" alt="Sunflowers" loading="lazy"/></button>
+    <button class="m3" data-s="assets/img/hero-poppies.jpg"><img src="assets/img/hero-poppies.jpg" alt="Poppies" loading="lazy"/></button>
+    <button data-s="assets/img/rose-red.jpg"><img src="assets/img/rose-red.jpg" alt="Red rose" loading="lazy"/></button>
+    <button data-s="assets/img/bouquet-garden.jpg"><img src="assets/img/bouquet-garden.jpg" alt="Garden bouquet" loading="lazy"/></button>
+    <button class="m3" data-s="assets/img/begonia-red.jpg"><img src="assets/img/begonia-red.jpg" alt="Red blooms" loading="lazy"/></button>
+    <button data-s="assets/img/roses-rainbow.jpg"><img src="assets/img/roses-rainbow.jpg" alt="Rainbow roses" loading="lazy"/></button>
+  </div>
+</div></section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="sec tm"><div class="wrap">
+  <div class="sec-head c rv-in"><span class="eyebrow c">Testimonials</span><h2>What customers <em class="gold-text">say</em></h2></div>
+  <div class="tm-box" id="tm">
+    <div class="tm-i on"><div class="q">“</div><p>The wedding garlands were absolutely stunning and so fresh. Everyone asked where we got them!</p><div class="who">Priya R. · Wedding order</div></div>
+    <div class="tm-i"><div class="q">“</div><p>I order my puja flowers every week. Always fresh, always on time, and fairly priced.</p><div class="who">Suresh K. · Regular customer</div></div>
+    <div class="tm-i"><div class="q">“</div><p>Last-minute anniversary bouquet delivered within hours. My wife loved it!</p><div class="who">Ravi T. · Anniversary</div></div>
+  </div>
+  <div class="tm-dots" id="tmDots"><i class="on"></i><i></i><i></i></div>
+  <p class="sample">Sample reviews — to be replaced with real customer feedback.</p>
+</div></section>
+
+<!-- ===== FAQ + CARE ===== -->
+<section class="sec faq2" id="blog"><div class="wrap faq2-grid">
+  <div class="rv-in">
+    <span class="eyebrow">Good to know</span>
+    <h2>Questions, <em class="gold-text">answered</em></h2>
+    <p class="sub">Can't find what you need? Message us and we'll reply quickly.</p>
+    <a class="btn btn-wa" href="https://wa.me/919949179933" target="_blank" rel="noopener"><svg class="ic"><use href="#i-whatsapp"/></svg> Ask on WhatsApp</a>
+    <div class="care">
+      <h4>Keep flowers fresh longer</h4>
+      <ul><li>Trim 1 inch off the stems at an angle.</li><li>Change the water every day.</li><li>Keep away from direct sun and fruit.</li></ul>
+    </div>
+  </div>
+  <div class="rv-in">
+    <details open><summary>How do I place an order?</summary><p>Add flowers to your order on this page and tap "Send on WhatsApp". We confirm availability, price and delivery time on WhatsApp.</p></details>
+    <details><summary>Do you deliver?</summary><p>Yes — same-day local delivery in Guntur on request. Delivery charges depend on distance and are confirmed when you order.</p></details>
+    <details><summary>Can you make custom or bulk arrangements?</summary><p>Absolutely — weddings, temples, shops and events. Message us your date, colours and budget for a quote.</p></details>
+    <details><summary>How fresh are the flowers?</summary><p>We buy fresh every morning and only sell what we'd be proud to gift ourselves.</p></details>
+    <details><summary>Can I visit the stall?</summary><p>Of course! We're at Shop No: 4, Rythu Bazar, near NTR Bus Stand, Guntur — open daily 6 AM to 9 PM.</p></details>
+  </div>
+</div></section>
+
+<section class="sec contact" id="contact"><div class="wrap ct-grid">
+  <div class="ct-info rv-in">
+    <h3>Visit or message us</h3>
+    <div class="ci"><i><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg></i><div><small>Find us</small>AD Flower Stall, Shop No: 4, Rythu Bazar,<br/>Near NTR Bus Stand, Guntur – 522001</div></div>
+    <div class="ci"><i><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg></i><div><small>WhatsApp / Contact</small>+91 99491 79933</div></div>
+    <div class="ci"><i><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg></i><div><small>Opening hours</small>Every day · 6:00 AM – 9:00 PM</div></div>
+    <a class="btn btn-gold" href="https://wa.me/919949179933" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg> WhatsApp us</a>
+  </div>
+  <form id="orderForm" class="rv-in">
+    <h3>Send an enquiry</h3>
+    <div class="f2"><div><label>Your name</label><input name="name" required/></div><div><label>Phone</label><input name="phone" type="tel" required/></div></div>
+    <div class="f2"><div><label>Occasion</label><select name="occ"><option>Daily / Puja</option><option>Wedding</option><option>Birthday</option><option>Anniversary</option><option>Event / Bulk</option></select></div><div><label>Needed on</label><input name="date" type="date"/></div></div>
+    <div><label>What are you looking for?</label><textarea name="msg" rows="4" placeholder="e.g. 2 garlands and a bouquet in red &amp; white"></textarea></div>
+    <button class="btn btn-navy" type="submit">Send via WhatsApp →</button>
+  </form>
+</div>
+  <div class="wrap map-wrap rv-in"><iframe title="AD Flower Stall location" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Rythu+Bazar+NTR+Bus+Stand+Guntur+522001&z=15&output=embed"></iframe></div>
+</section>
+
+<!-- Quick view -->
+<div class="qv" id="qv" hidden><div class="qv-box" role="dialog" aria-modal="true" aria-label="Quick view">
+  <button class="qv-x" id="qvX" aria-label="Close"><svg class="ic"><use href="#i-close"/></svg></button>
+  <div class="qv-img"><img id="qvImg" src="" alt=""/><span class="qv-tag" id="qvTag"></span></div>
+  <div class="qv-info">
+    <small id="qvCat"></small><h3 id="qvName"></h3>
+    <div class="qv-stars">★★★★★ <span>Fresh today</span></div>
+    <div class="qv-price" id="qvPrice"></div>
+    <p id="qvDesc"></p>
+    <div class="qv-row"><div class="qv-qty"><button id="qvMinus" aria-label="Less">–</button><b id="qvN">1</b><button id="qvPlus" aria-label="More">+</button></div><button class="btn btn-navy" id="qvAdd">Add to order</button></div>
+    <button class="btn btn-wa" id="qvWa"><svg class="ic"><use href="#i-whatsapp"/></svg> Order this on WhatsApp</button>
+  </div>
+</div></div>
+<!-- Lightbox -->
+<div class="lb" id="lb" hidden><button class="lb-x" id="lbX" aria-label="Close"><svg class="ic"><use href="#i-close"/></svg></button><img id="lbImg" src="" alt=""/></div>
+
+
+<footer class="footer" id="footer">
+  <div class="ft-cta"><div class="wrap">
+    <div><h3>Planning a wedding, puja or event?</h3><p>Tell us your date, colours and budget — we'll send a quote on WhatsApp within hours.</p></div>
+    <div class="ft-cta-b"><a class="btn btn-navy" href="#contact">Request a Quote →</a><a class="btn btn-ghost" href="https://wa.me/919949179933" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg> WhatsApp Us</a></div>
+  </div></div>
+
+  <div class="ft-main"><div class="ft-mark" aria-hidden="true">AD Flower Stall</div><div class="wrap ft-cols">
+    <div class="ft-brand">
+      <a class="ft-logo" href="#home"><img src="assets/img/logo-light.png" alt="AD Flower Stall"/></a>
+      <p>Fresh flowers, honest prices and heartfelt arrangements — from our stall to your special moments.</p>
+      <a class="ft-wa" href="https://wa.me/919949179933" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg><span><small>Order on WhatsApp</small>+91 99491 79933</span></a>
+    </div>
+    <div class="ft-col"><h4>Quick Links</h4><ul>
+      <li><a href="#home">Home</a></li><li><a href="#categories">Categories</a></li><li><a href="#shop">Shop</a></li><li><a href="#deal">Today's Offer</a></li><li><a href="#blog">Flower Care Tips</a></li><li><a href="#contact">Contact</a></li></ul></div>
+    <div class="ft-col"><h4>Our Flowers</h4><ul>
+      <li><a href="#shop" data-cat="Roses">Roses</a></li><li><a href="#shop" data-cat="Bouquets">Bouquets</a></li><li><a href="#shop" data-cat="Seasonal">Seasonal Flowers</a></li><li><a href="#shop" data-cat="Gifts">Gift Flowers</a></li><li><a href="#contact">Wedding &amp; Event Décor</a></li><li><a href="#contact">Bulk Orders</a></li></ul></div>
+    <div class="ft-col ft-visit"><h4>Visit Our Stall</h4>
+      <div class="ft-row"><i><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg></i><p>AD Flower Stall<br/>Shop No: 4, Rythu Bazar,<br/>Near NTR Bus Stand,<br/>Guntur – 522001</p></div>
+      <div class="ft-row"><i><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg></i><p><a href="https://wa.me/919949179933" target="_blank" rel="noopener">+91 99491 79933</a><br/><small>WhatsApp / Contact</small></p></div>
+      <div class="ft-row"><i><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg></i><p>Open daily<br/><small>6:00 AM – 9:00 PM</small></p></div>
+      <a class="ft-dir" href="https://www.google.com/maps/search/?api=1&query=Rythu+Bazar+NTR+Bus+Stand+Guntur+522001" target="_blank" rel="noopener">Get Directions →</a>
+    </div>
+  </div></div>
+
+  <div class="ft-bar"><div class="wrap">
+    <span>© <span id="yr"></span> AD Flower Stall, Guntur. All rights reserved.</span>
+    <span class="legal"><a href="policies.html#privacy">Privacy Policy</a><a href="policies.html#terms">Terms of Service</a><a href="policies.html#cookies">Cookie Policy</a><a href="policies.html#delivery">Delivery &amp; Refunds</a><a href="#" id="cookieSet">Cookie Settings</a></span>
+  </div></div>
+</footer>
+
+<!-- Cookie banner -->
+<div class="cookie" id="cookie" role="dialog" aria-label="Cookie consent" hidden>
+  <span class="ck-ic"><svg class="ic" aria-hidden="true"><use href="#i-cookie"/></svg></span><span class="ck-t">We use cookies <a href="policies.html#cookies">Learn more</a></span>
+  <button class="ck-set" id="ckSettings"><svg class="ic" aria-hidden="true"><use href="#i-settings"/></svg> Settings</button><button class="ck-dec" id="ckDecline">Decline</button><button class="ck-acc" id="ckAccept">Accept All</button>
+</div>
+<div class="ck-modal" id="ckModal" hidden><div class="ck-box">
+  <h3>Cookie Settings</h3><p>Choose which cookies you allow. Essential cookies keep the site working (cart, wishlist) and can't be turned off. See our <a href="policies.html#cookies">Cookie Policy</a>.</p>
+  <label class="ck-row"><span><b>Essential</b><small>Cart, wishlist and security — always on</small></span><input type="checkbox" checked disabled/></label>
+  <label class="ck-row"><span><b>Analytics</b><small>Helps us see which flowers are popular</small></span><input type="checkbox" id="ckAn"/></label>
+  <label class="ck-row"><span><b>Marketing</b><small>Offers and relevant promotions</small></span><input type="checkbox" id="ckMk"/></label>
+  <div class="ck-act"><button class="btn btn-line" id="ckSave">Save choices</button><button class="btn btn-gold" id="ckAll">Accept All</button></div>
+</div></div>
+
+<button class="totop" id="toTop" aria-label="Scroll to top"><svg class="ic" aria-hidden="true"><use href="#i-up"/></svg></button>
+<a class="wa" href="https://wa.me/919949179933" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg></a>
+<div class="shade" id="shade"></div>
+<aside class="drawer" id="drawer"><header><span id="dTitle">My Order</span> <button id="dClose" aria-label="Close"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button></header><div class="d-items" id="dItems"></div><div class="d-ft"><div class="tot"><span>Estimated total</span><span id="tot">₹0</span></div><button class="btn btn-wa" id="send">Send on WhatsApp</button></div></aside>
+
+<script src="js/home.js"></script>
+<script src="js/chrome.js"></script>
+<script src="js/totop.js"></script>
+</body>
+</html>

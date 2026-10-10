@@ -1,0 +1,70 @@
+/* v7 — separated contact section + "plan your occasion" (loads last) */
+
+/* ===== contact: its own section ===== */
+.faq3{padding-bottom:6rem}
+.contact{position:relative;background:#fff;padding-top:7rem}
+.contact .wave-top{position:absolute;left:0;right:0;top:-1px;height:56px;line-height:0;pointer-events:none}
+.contact .wave-top svg{width:100%;height:100%;display:block}
+.contact .wave-top path{fill:var(--cream)}
+.contact .sec-head{margin-bottom:2.6rem}
+.contact .ct-grid{align-items:stretch}
+.contact form{border:1px solid #efe5c9;box-shadow:0 18px 48px rgba(11,37,89,.09)}
+.contact .map-wrap{margin-top:2.2rem}
+.contact .map-wrap iframe{border:1px solid #efe5c9}
+
+/* ===== plan your occasion ===== */
+.plan{position:relative;overflow:hidden;padding:5.5rem 0;background:linear-gradient(120deg,#F9EFCB 0%,#EFD08A 52%,#DDB152 100%)}
+.plan::before,.plan::after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+.plan::before{width:520px;height:520px;right:-160px;top:-200px;background:radial-gradient(circle,rgba(255,255,255,.55),transparent 65%)}
+.plan::after{width:380px;height:380px;left:-120px;bottom:-190px;border:1.5px solid rgba(11,37,89,.18)}
+.pl{position:relative;display:grid;grid-template-columns:1fr 1.02fr;gap:3.6rem;align-items:center}
+.pl-copy .eyebrow{color:#7a5a12}.pl-copy .eyebrow::before{background:#7a5a12}
+.pl-copy h2{font-size:clamp(2.2rem,4.5vw,3.5rem);margin:.7rem 0 1rem;color:var(--navy-3)}
+.pl-copy h2 em{font-style:italic;color:#8a6410}
+.pl-copy>p{color:#3b3216;max-width:31rem;font-size:1.02rem}
+.pl-steps{list-style:none;display:grid;gap:1rem;margin:1.8rem 0 1.8rem;position:relative}
+.pl-steps::before{content:"";position:absolute;left:17px;top:22px;bottom:22px;border-left:2px dashed rgba(11,37,89,.3)}
+.pl-steps li{position:relative;display:flex;gap:1rem;align-items:flex-start}
+.pl-steps b{flex:none;width:36px;height:36px;border-radius:50%;background:var(--navy);color:var(--gold-2);display:grid;place-items:center;font-family:var(--serif);font-size:1.15rem;box-shadow:0 0 0 5px rgba(255,255,255,.55)}
+.pl-steps strong{display:block;font-family:var(--serif);font-size:1.3rem;color:var(--navy-3);line-height:1.15}
+.pl-steps span{font-size:.9rem;color:#4b4020}
+.pl-photos{display:flex;align-items:center}
+.pl-photos img{width:56px;height:56px;border-radius:50%;object-fit:cover;border:3px solid #fff;margin-left:-14px;box-shadow:0 6px 16px rgba(11,37,89,.25)}
+.pl-photos img:first-child{margin-left:0}
+.pl-photos span{margin-left:1rem;font-family:var(--serif);font-style:italic;font-size:1.2rem;color:var(--navy-3)}
+.pl-card{background:#fff;border-radius:28px;padding:2.2rem;box-shadow:0 30px 70px rgba(11,37,89,.28);display:grid;gap:1.05rem}
+.pl-card h3{font-size:2rem}
+.pl-l{display:block;margin:0 0 .45rem;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.pl-chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.pl-chip{display:inline-flex;align-items:center;gap:.45rem;padding:.6rem 1.05rem;border-radius:999px;border:1.5px solid #e2d6b4;background:#fff;color:var(--navy);font-family:var(--sans);font-size:.88rem;cursor:pointer;transition:.25s}
+.pl-chip .ic{width:17px;height:17px;color:var(--gold)}
+.pl-chip:hover{border-color:var(--navy)}
+.pl-chip.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.pl-chip.on .ic{color:var(--gold-2)}
+.pl-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.pl-card input,.pl-card select,.pl-card textarea{border-radius:14px;background:var(--ivory)}
+.pl-go{justify-content:center;width:100%;padding:1.05rem 1.4rem;font-size:1rem}
+.pl-go .ic{stroke:none;width:22px;height:22px}
+.pl-note{text-align:center;font-size:.8rem;color:var(--muted);margin-top:-.2rem}
+
+/* footer follows the gold section */
+.footer .ft-main{padding-top:4.2rem}
+
+@media(max-width:1000px){
+  .pl{grid-template-columns:1fr;gap:2.4rem}
+  .plan{padding:4.2rem 0}
+}
+@media(max-width:640px){
+  .contact{padding-top:5.5rem}
+  .contact .wave-top{height:38px}
+  .faq3{padding-bottom:4.6rem}
+  .plan{padding:3.4rem 0}
+  .pl-card{padding:1.4rem 1.2rem;border-radius:22px}
+  .pl-card h3{font-size:1.7rem}
+  .pl-row{grid-template-columns:1fr}
+  .pl-chips{flex-wrap:nowrap;overflow-x:auto;margin:0 -1.2rem;padding:0 1.2rem .3rem;scrollbar-width:none}
+  .pl-chips::-webkit-scrollbar{display:none}
+  .pl-chip{flex:none;white-space:nowrap}
+  .pl-photos span{font-size:1.05rem}
+  .pl-steps strong{font-size:1.2rem}
+}
