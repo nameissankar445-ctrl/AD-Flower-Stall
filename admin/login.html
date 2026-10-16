@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Admin Sign in | AD Flower Stall</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="icon" type="image/png" href="/assets/img/favicon.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/admin/admin.css"/>
+</head>
+<body data-page="login" class="chk">
+<div class="lgn">
+  <aside class="art" aria-hidden="true">
+    <img src="/assets/img/south/marigold-garlands.jpg" alt=""/>
+    <div class="shine"></div>
+    <div class="cap"><span>Rythu Bazar · Guntur</span><b>Fresh flowers, every morning.</b><p>Manage orders, flowers and enquiries in one place.</p></div>
+  </aside>
+  <main class="pane">
+    <div class="fbox">
+      <img class="lg" src="/assets/img/logo.png" alt="AD Flower Stall"/>
+      <h1>Welcome back</h1>
+      <p class="sub">Sign in to the admin area. For the AD Flower Stall team only.</p>
+      <form id="lf" novalidate>
+        <label for="em">Email</label>
+        <div class="fld"><svg class="ico" viewBox="0 0 24 24"><path d="M4 6h16v12H4zM4 7l8 6 8-6"/></svg><input id="em" type="email" autocomplete="username" required placeholder="you@example.com"/></div>
+        <label for="pw">Password</label>
+        <div class="fld"><svg class="ico" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><input id="pw" type="password" autocomplete="current-password" required placeholder="Your password"/><button type="button" id="sp" class="eye" aria-label="Show or hide password">Show</button></div>
+        <p id="msg" class="msg" hidden role="alert"></p>
+        <button id="go" class="btn" type="submit">Sign in</button>
+      </form>
+      <a class="back" href="/">← Back to website</a>
+    </div>
+  </main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="/js/supabase-config.js"></script>
+<script src="/js/admin.js"></script>
+</body>
+</html>
