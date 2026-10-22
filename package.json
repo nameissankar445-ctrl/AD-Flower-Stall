@@ -1,9 +1,15 @@
 {
   "name": "ad-flower-stall",
-  "version": "1.0.0",
-  "description": "AD Flower Stall - Beautiful floral website",
+  "version": "1.1.0",
+  "private": true,
+  "description": "AD Flower Stall - flower shop website (static pages built with Vite)",
+  "type": "module",
   "scripts": {
-    "dev": "npx serve . -p 3030 --no-clipboard",
-    "start": "npx serve . -p 3030 --no-clipboard"
+    "dev": "vite --port 3030",
+    "build": "vite build",
+    "preview": "vite preview --port 3030"
+  },
+  "devDependencies": {
+    "vite": "^5.4.11"
   }
 }

@@ -53,3 +53,16 @@ All images are pre-compressed (about 1.3 MB for every photo and logo together), 
 - `admin/login.html` — email + password sign-in only (there is NO sign-up page). `admin/index.html` — protected dashboard placeholder. `admin/admin.css`, `js/admin.js` (logic), `js/supabase-config.js` (project URL + anon key — fill in), `supabase/admin_users.sql` (run once in Supabase).
 - Access = the user exists in Supabase Auth AND has a row in `admin_users`. Anyone else is signed out with a message. Turn OFF "Allow new users to sign up" in Supabase and create admins by hand.
 - URLs: /admin/login and /admin/. Pages are `noindex`; a small "Admin Login" link sits in the footer of every public page.
+
+## Build with Vite (added 22-Oct-2026)
+The site is still plain HTML/CSS/JS — Vite just serves and builds it, the design is unchanged.
+
+```
+npm install
+npm run dev       # http://localhost:3030
+npm run build     # outputs to dist/
+npm run preview   # serve the built dist/ locally
+```
+- HTML pages stay at the project root (`index.html`, `privacy.html`, `terms.html`, `credits.html`, `admin/`).
+- `public/` holds `css/`, `js/`, `assets/`, `robots.txt` and `sitemap.xml`; Vite copies them to the build as they are.
+- Supabase URL and publishable key live in `public/js/supabase-config.js`.
