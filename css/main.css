@@ -687,3 +687,8 @@ body{background:var(--cream)}
 .faq summary::after{content:"+";font-size:1.5rem;line-height:1;color:#C8161D;transition:transform .25s}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq p{padding:0 0 1.2rem;color:#5A3A1E;font-size:.95rem}
+/* prices hidden (SHOW_PRICES=false in main.js) */
+html.np #so,html.np .cs:has(#so),html.np .df .tt{display:none!important}
+html.np .tool .tr2{justify-content:flex-end}
+html.np #so+.cs{display:none!important}
+html.np .srch{flex:1}html.np .srch input{width:100%;min-width:260px}

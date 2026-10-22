@@ -3,6 +3,9 @@
   var PHONE = '919949179933'; // WhatsApp number (orders)
   var $ = function (s) { return document.querySelector(s); };
   var $$ = function (s) { return Array.prototype.slice.call(document.querySelectorAll(s)); };
+  /* Prices are hidden on the public site. Set to true to show them again (card price badge, drawer amounts, WhatsApp totals). */
+  var SHOW_PRICES = false;
+  document.documentElement.classList.toggle('np', !SHOW_PRICES);
   var rupee = function (n) { return '₹' + n.toLocaleString('en-IN'); };
   var B = window.ADFS || null; // backend bridge (js/backend.js) — optional
   if (B) B.settings().then(function (S) { var w = S && S.business && String(S.business.whatsapp || '').replace(/\D/g, ''); if (w) PHONE = w; });
@@ -36,7 +39,7 @@
   var cat = 'all', q = '', sortBy = 'def', pg = $('#pg');
   function card(x, i) {
     var sold = x.stock === 'out_of_stock';
-    return '<article class="pc" style="--n:' + (i % 8) + '"><div class="im"><img loading="lazy" src="' + img(x) + '" alt="' + x.n + '"/><span class="bdg">' + x.c + '</span><span class="pb">' + rupee(x.p) + '</span></div>' +
+    return '<article class="pc" style="--n:' + (i % 8) + '"><div class="im"><img loading="lazy" src="' + img(x) + '" alt="' + x.n + '"/><span class="bdg">' + x.c + '</span>' + (SHOW_PRICES ? '<span class="pb">' + rupee(x.p) + '</span>' : '') + '</div>' +
       '<div class="bd"><h3>' + x.n + '</h3><p class="u2">' + x.u + '</p><p class="ds">' + x.d + '</p>' +
       '<div class="ac"><div class="qs"><button type="button" data-q="-1" aria-label="Less">–</button><b>1</b><button type="button" data-q="1" aria-label="More">+</button></div>' +
       (sold ? '<button type="button" class="ab" disabled>Sold out today</button>' : '<button type="button" class="ab" data-add="' + x.id + '">Add to order</button>') + '</div></div></article>';
@@ -90,7 +93,7 @@
     var n = 0, t = 0, ids = Object.keys(cart);
     $('#di').innerHTML = ids.length ? ids.map(function (id) {
       var x = get(id), k = cart[id]; n += k; t += k * x.p;
-      return '<div class="dt"><img src="' + img(x) + '" alt=""/><div><b>' + x.n + '</b><small>' + x.u + ' · ' + rupee(x.p) + '</small></div><div class="qy"><button data-m="' + id + '" aria-label="Less">–</button><span>' + k + '</span><button data-p="' + id + '" aria-label="More">+</button></div></div>';
+      return '<div class="dt"><img src="' + img(x) + '" alt=""/><div><b>' + x.n + '</b><small>' + x.u + (SHOW_PRICES ? ' · ' + rupee(x.p) : '') + '</small></div><div class="qy"><button data-m="' + id + '" aria-label="Less">–</button><span>' + k + '</span><button data-p="' + id + '" aria-label="More">+</button></div></div>';
     }).join('') : '<p class="em">Your order is empty.<br/>Add some flowers to begin.</p>';
     $('#cn').textContent = n; $('#tt').textContent = rupee(t);
     try { localStorage.setItem('adfs_cart', JSON.stringify(cart)); } catch (e) {}
@@ -112,12 +115,12 @@
   });
   $('#os').onchange = function () { $('#oaw').hidden = this.value !== 'delivery'; };
   $('#sd').onclick = function () {
-    var t = 0, items = [], lines = Object.keys(cart).map(function (id) { var x = get(id); t += cart[id] * x.p; items.push({ product_id: +id, name: x.n, unit: x.u, price: x.p, qty: cart[id] }); return '• ' + x.n + ' (' + x.u + ') × ' + cart[id] + ' = ' + rupee(cart[id] * x.p); });
+    var t = 0, items = [], lines = Object.keys(cart).map(function (id) { var x = get(id); t += cart[id] * x.p; items.push({ product_id: +id, name: x.n, unit: x.u, price: x.p, qty: cart[id] }); return '• ' + x.n + ' (' + x.u + ') × ' + cart[id] + (SHOW_PRICES ? ' = ' + rupee(cart[id] * x.p) : ''); });
     if (!lines.length) return;
     var del = $('#os').value === 'delivery', nm = $('#on').value.trim(), ad = $('#oa').value.trim(), ph = ($('#op') ? $('#op').value.trim() : '');
     if (del && !ad) { $('#oa').focus(); $('#oa').style.borderColor = '#B3402A'; return; }
     var msg = function (num) {
-      return 'Hello AD Flower Stall! I would like to order:\n' + lines.join('\n') + '\n\nEstimated total: ' + rupee(t) + (num ? '\nOrder no: ' + num : '') + (nm ? '\nName: ' + nm : '') + '\nReceive by: ' + (del ? 'Home delivery\nAddress: ' + ad : 'Pickup at stall') + '\nPlease confirm availability & final price.';
+      return 'Hello AD Flower Stall! I would like to order:\n' + lines.join('\n') + (SHOW_PRICES ? '\n\nEstimated total: ' + rupee(t) : '') + (num ? '\nOrder no: ' + num : '') + (nm ? '\nName: ' + nm : '') + '\nReceive by: ' + (del ? 'Home delivery\nAddress: ' + ad : 'Pickup at stall') + '\nPlease confirm availability and the price.';
     };
     if (!B) return wa(msg(''));
     // Open WhatsApp synchronously (popup blockers), save the order in the background with the same number.
