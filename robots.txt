@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /supabase/
 
-Sitemap: https://adflowerstall.in/sitemap.xml
+Sitemap: https://adflowerstall.com/sitemap.xml

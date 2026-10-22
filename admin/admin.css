@@ -260,3 +260,35 @@ body.chk .lgn{opacity:0}.lgn{transition:opacity .25s}
 .gs input{font-size:.9rem}
 .tw table.pt td{padding:.7rem .8rem}
 @media(max-width:700px){.acts{flex-wrap:wrap;width:100%}.sq,.sq input{width:100%}.acts .b1{width:100%}}
+
+/* ===== v34: admin responsive pass ===== */
+@media(max-width:700px){
+ .tw table.pt{min-width:0}
+ table.pt,table.pt tbody{display:block}table.pt thead{display:none}
+ table.pt tr{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .7rem;padding:.9rem 0;border-bottom:1px solid #F4EEDD}
+ table.pt tr:last-child{border-bottom:0}
+ table.pt td{display:block;padding:0;border:0}
+ table.pt td:nth-child(1){flex:0 0 100%}
+ table.pt td:nth-child(5){margin-left:auto}
+ .tw table:not(.pt){min-width:560px}
+ .mdc{max-height:94vh;border-radius:20px}
+ .mb{position:sticky;bottom:-1.3rem;background:#fff;padding:.8rem 0 .2rem;margin-bottom:-.2rem}
+}
+@media(max-width:560px){
+ .stats{grid-template-columns:1fr 1fr;gap:.7rem}
+ .st{min-height:150px;padding:1rem}
+ .st b{font-size:1.9rem}.st strong{font-size:.95rem}.st small{font-size:.76rem}
+ .st .ic{width:42px;height:42px;left:1rem;top:1rem;border-radius:13px}.st .ic .i{width:1.2rem;height:1.2rem}
+ .chip{right:.8rem;top:1rem;font-size:.68rem;padding:.2rem .6rem}
+ .hm div{padding:.7rem .8rem}.hm b{font-size:1.35rem}.hm span{font-size:.72rem}
+ .upd{font-size:.78rem;padding:.55rem .9rem}
+}
+@media(max-width:700px){
+ table.pt tr{gap:.55rem .5rem}
+ table.pt td:nth-child(1){flex:0 0 100%}
+ table.pt .pi{width:68px;padding:.45rem .5rem}
+ table.pt .sel{width:108px;padding:.45rem .4rem;font-size:.78rem}
+ table.pt .sw{width:40px;height:23px}.sw i::after{width:17px;height:17px}.sw input:checked+i::after{left:20px}
+ .card{padding:1.2rem 1rem}
+}
+

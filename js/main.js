@@ -140,7 +140,7 @@
   $('#bt').onclick = function () { menu(!$('#nv').classList.contains('on')); };
   $$('#nv a').forEach(function (a) { a.addEventListener('click', function () { menu(false); }); });
   var up = $('#up'); up.onclick = function () { window.scrollTo({ top: 0, behavior: 'smooth' }); };
-  var spy = [['top', '#top'], ['shop', '#shop'], ['occasions', '#occasions'], ['visit', '#visit']];
+  var spy = [['top', '#top'], ['shop', '#shop'], ['occasions', '#occasions'], ['reviews', '#reviews'], ['visit', '#visit']];
   function hdr() {
     $('#hd').classList.toggle('stuck', scrollY > 40); up.classList.toggle('on', scrollY > 600);
     var y = scrollY + 160, cur = '#top';
@@ -195,7 +195,7 @@
   $('#cka').onclick = $('#cmal').onclick = function () { store({ essential: 1, analytics: 1, marketing: 1 }); };
   $('#ckd').onclick = function () { store({ essential: 1, analytics: 0, marketing: 0 }); };
   $('#cmsv').onclick = function () { store({ essential: 1, analytics: +$('#cm-an').checked, marketing: +$('#cm-mk').checked }); };
-  function openCm() { var s = saved() || {}; $('#cm-an').checked = !!s.analytics; $('#cm-mk').checked = !!s.marketing; cm.hidden = false; document.body.classList.add('lock'); }
+  function openCm() { var s = saved() || {}; $('#cm-an').checked = s.analytics === 1; $('#cm-mk').checked = s.marketing === 1; cm.hidden = false; document.body.classList.add('lock'); }
   $('#cks').onclick = openCm; var ckr = $('#ckr'); if (ckr) ckr.onclick = openCm;
   $('#cmx').onclick = function () { cm.hidden = true; document.body.classList.remove('lock'); };
   cm.addEventListener('click', function (e) { if (e.target === cm) { cm.hidden = true; document.body.classList.remove('lock'); } });

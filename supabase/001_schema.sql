@@ -231,7 +231,7 @@ insert into public.products (name, slug, category_id, unit, price, description, 
 on conflict (slug) do nothing;
 
 insert into public.site_settings (key, value) values
- ('business', '{"name":"AD Flower Stall","phone":"+91 99491 79933","whatsapp":"919949179933","address":"Shop No. 4, Rythu Bazar, Near NTR Bus Stand, Guntur – 522001","hours":"Every day · 5:00 AM – 9:00 PM"}'),
+ ('business', '{"name":"AD Flower Stall","phone":"+91 99491 79933","whatsapp":"919949179933","address":"Shop No: 4, AD Flower Stall, Rythu Bazar, near NTR Bus Stand, Coastal Andhra Region, Thamma Ranga Reddy Nagar, Guntur, Andhra Pradesh 522001","hours":"Every day · 5:00 AM – 9:00 PM"}'),
  ('whatsapp', '{"mode":"link","capture_name_before_chat":true,"overdue_minutes":30,"greeting":"Hello AD Flower Stall, I would like to order flowers."}'),
  ('delivery', '{"enabled":true,"areas":["Guntur city"],"charge":0,"minimum_order":0}')
 on conflict (key) do nothing;
