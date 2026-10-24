@@ -130,10 +130,11 @@
       '<div class="lgm" role="menu"><p class="lgh">Choose language <span lang="te">· భాష</span></p><ul>' + LANGS.map(function (l) { return '<li role="none"><button type="button" role="menuitemradio" data-l="' + l[0] + '" lang="' + l[0] + '"><b>' + l[1] + '</b><small>' + (l[0] === 'en' ? 'Default' : l[3]) + '</small><svg class="ck2" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></button></li>'; }).join('') + '</ul></div>';
     host.insertBefore(w, host.firstChild);
     btnCode = $('.lgc', w); menu = $('.lgm', w); var b = $('.lgb', w);
-    b.onclick = function (e) { e.stopPropagation(); var o = !w.classList.contains('open'); w.classList.toggle('open', o); b.setAttribute('aria-expanded', o); };
-    menu.onclick = function (e) { var x = e.target.closest('button[data-l]'); if (x) { setLang(x.dataset.l, true); w.classList.remove('open'); b.setAttribute('aria-expanded', false); } };
-    document.addEventListener('click', function () { w.classList.remove('open'); b.setAttribute('aria-expanded', false); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') w.classList.remove('open'); });
+    function setOpen(o) { w.classList.toggle('open', o); b.setAttribute('aria-expanded', o); document.body.classList.toggle('lgo', o); }
+    b.onclick = function (e) { e.stopPropagation(); setOpen(!w.classList.contains('open')); };
+    menu.onclick = function (e) { e.stopPropagation(); var x = e.target.closest('button[data-l]'); if (x) { setLang(x.dataset.l, true); setOpen(false); } };
+    document.addEventListener('click', function () { setOpen(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
     mark();
   }
   function mark() {
