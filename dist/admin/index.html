@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Admin | AD Flower Stall</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="icon" type="image/png" href="/assets/img/favicon.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" crossorigin href="/bundle/admin-COpUFDdj.css">
+</head>
+<body data-page="dash">
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="a-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></symbol>
+<symbol id="a-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 0 1 6 0v2"/></symbol>
+<symbol id="a-flower" viewBox="0 0 24 24"><circle cx="12" cy="11" r="2.2"/><path d="M12 8.8C12 5.5 13.5 4 15.5 4c.3 2.8-1.2 4.6-3.5 4.8M12 8.8C12 5.5 10.5 4 8.5 4c-.3 2.8 1.2 4.6 3.5 4.8M14.2 11c3.3 0 5 1.5 5.3 3.5-2.8.5-4.8-.8-5.5-3M9.8 11C6.5 11 4.8 12.5 4.5 14.5c2.8.5 4.8-.8 5.5-3M12 13.2V21"/></symbol>
+<symbol id="a-chat" viewBox="0 0 24 24"><path d="M5 5h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-8l-5 4v-4H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></symbol>
+<symbol id="a-cog" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M18.4 5.6l-1.8 1.8M7.4 16.6l-1.8 1.8"/></symbol>
+<symbol id="a-rupee" viewBox="0 0 24 24"><path d="M7 5h10M7 9h10M7 5c5 0 7 2 7 4s-2 4-7 4l7 6"/></symbol>
+<symbol id="a-alert" viewBox="0 0 24 24"><path d="M12 4l9 16H3zM12 10v4M12 17v.01"/></symbol>
+<symbol id="a-out" viewBox="0 0 24 24"><path d="M9 4H5v16h4M16 8l4 4-4 4M20 12H9"/></symbol>
+<symbol id="a-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5H5V6h5"/></symbol>
+<symbol id="a-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></symbol>
+<symbol id="a-ref" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14-4.5L4 9M4 5v4h4M4 13a8 8 0 0 0 14 4.5L20 15M20 19v-4h-4"/></symbol>
+<symbol id="a-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/></symbol>
+<symbol id="a-wa" viewBox="0 0 24 24"><path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.2A8.5 8.5 0 1 1 20 11.5z"/></symbol>
+<symbol id="a-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="a-back" viewBox="0 0 24 24"><path d="M11 6l-6 6 6 6M5 12h14"/></symbol>
+<symbol id="a-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+</svg>
+<div class="app">
+  <aside class="side" id="side">
+    <div class="brand"><img src="/assets/img/logo.png" alt="AD Flower Stall"/><span>Admin console</span></div>
+    <nav id="nav">
+      <p class="grp">Overview</p>
+      <button class="on" data-v="dash"><svg class="i"><use href="#a-grid"/></svg>Dashboard</button>
+      <p class="grp">Sales</p>
+      <button data-v="orders"><svg class="i"><use href="#a-bag"/></svg>Orders<b id="nOrd"></b></button>
+      <button data-v="leads"><svg class="i"><use href="#a-wa"/></svg>WhatsApp leads<b id="nLead"></b></button>
+      <button data-v="enq"><svg class="i"><use href="#a-chat"/></svg>Quotes &amp; enquiries<b id="nQ"></b></button>
+      <p class="grp">Catalogue</p>
+      <button data-v="products"><svg class="i"><use href="#a-flower"/></svg>Flowers &amp; prices</button>
+      <p class="grp">Site</p>
+      <button data-v="settings"><svg class="i"><use href="#a-cog"/></svg>Shop settings</button>
+    </nav>
+    <div class="sf">
+      <a class="back2" href="/"><svg class="i"><use href="#a-back"/></svg>Back to site</a>
+      <div class="me"><span class="av" id="av2">A</span><div><b>Admin</b><small id="who2"></small></div><button id="out" type="button" aria-label="Sign out" title="Sign out"><svg class="i"><use href="#a-out"/></svg></button></div>
+    </div>
+  </aside>
+  <div class="main">
+    <header class="top">
+      <button class="burger" id="burger" aria-label="Menu"><svg class="i"><use href="#a-menu"/></svg></button>
+      <span class="tile"><svg class="i"><use href="#a-grid"/></svg></span>
+      <div class="tt"><p class="crumb">Admin <i>/</i> <span id="crumb">Overview</span></p><h1 id="title">Dashboard</h1></div>
+      <label class="gs"><svg class="i"><use href="#a-search"/></svg><input id="gq" type="search" placeholder="Search anything…" autocomplete="off"/><kbd>Ctrl K</kbd></label>
+      <a class="vs" href="/" target="_blank" rel="noopener"><svg class="i"><use href="#a-ext"/></svg><span>View site</span></a>
+      <div class="usr"><span class="av" id="av">A</span><div><b>Admin</b><small id="who"></small></div></div>
+    </header>
+    <div class="body">
+    <div class="demo" id="demo" hidden><b>Sample data</b> — you're seeing example orders so you can preview the design. Real orders appear here once the database tables are created.</div>
+
+    <section class="view on" id="v-dash">
+      <div class="hero">
+        <div class="ht"><small><svg class="i"><use href="#a-spark"/></svg><span id="dDate"></span></small><h2 id="dHi">Good morning</h2><p>Here is your flower stall at a glance</p></div>
+        <div class="hm"><div><b id="mOrd">0</b><span>Page views (7d)</span></div><div><b id="mEnq">0</b><span>WhatsApp clicks (7d)</span></div><div><b id="mProd">0</b><span>Live flowers</span></div></div>
+        <div class="hr"><span class="upd" id="upd"></span><button class="rf" id="rf" type="button"><svg class="i"><use href="#a-ref"/></svg>Refresh</button></div>
+      </div>
+      <div class="stats">
+        <div class="st c1" data-go="orders"><span class="ic"><svg class="i"><use href="#a-bag"/></svg></span><span class="chip">today</span><b id="sOrd">0</b><strong>Today's orders</strong><small id="tOrdAll">All time</small></div>
+        <div class="st c2" data-go="leads"><span class="ic"><svg class="i"><use href="#a-wa"/></svg></span><span class="chip">today</span><b id="sWa">0</b><strong>WhatsApp clicks</strong><small id="tWa">Waiting for a reply</small></div>
+        <div class="st c3"><span class="ic"><svg class="i"><use href="#a-rupee"/></svg></span><b id="sRev">₹0</b><strong>Revenue</strong><small>Last 7 days</small></div>
+        <div class="st c4" data-go="products"><span class="ic"><svg class="i"><use href="#a-alert"/></svg></span><b id="sLow">0</b><strong>Stock to refill</strong><small>Low or out of stock</small></div>
+      </div>
+      <div class="grid2">
+        <div class="card t1"><div class="ch"><h3>Revenue — last 7 days</h3><span class="tag" id="rvTot"></span></div><div class="bars" id="bars"></div></div>
+        <div class="card t2"><div class="ch"><h3>Orders by status</h3></div><div class="stt" id="stt"></div></div>
+      </div>
+      <div class="grid2">
+        <div class="card t3"><div class="ch"><h3>Recent orders</h3><button class="lnk" data-go="orders">View all →</button></div><div class="tw"><table><thead><tr><th>Order</th><th>Customer</th><th>Total</th><th>Status</th></tr></thead><tbody id="tRecent"></tbody></table></div></div>
+        <div class="card t4"><div class="ch"><h3>Stock to refill</h3><button class="lnk" data-go="products">Manage →</button></div><ul class="low" id="lLow"></ul><div class="ch" style="margin-top:1.4rem"><h3>WhatsApp clicks by button</h3><button class="lnk" data-go="leads">All leads →</button></div><div class="stt" id="lSrc"></div></div>
+      </div>
+    </section>
+
+    <section class="view" id="v-orders">
+      <div class="card t1"><div class="ch"><h3>All orders <small class="hint">Click an order to see items, change status or reply</small></h3><div class="chips" id="fOrd"><button class="on" data-s="all">All</button><button data-s="new">New</button><button data-s="confirmed">Confirmed</button><button data-s="preparing">Preparing</button><button data-s="ready">Ready</button><button data-s="delivered">Delivered</button><button data-s="cancelled">Cancelled</button></div></div>
+        <div class="tw"><table><thead><tr><th>Order</th><th>Customer</th><th>Phone</th><th>Type</th><th>Total</th><th>Status</th><th>Placed</th></tr></thead><tbody id="tOrd"></tbody></table></div></div>
+    </section>
+
+    <section class="view" id="v-leads">
+      <div class="card t3"><div class="ch"><h3>WhatsApp leads <small class="hint">Every tap on a WhatsApp button on the website</small></h3><div class="chips" id="lStat"></div></div>
+        <div class="tw"><table><thead><tr><th>Ref</th><th>Button</th><th>Intent</th><th>Customer</th><th>When</th><th>Status</th><th></th></tr></thead><tbody id="tLead"></tbody></table></div></div>
+    </section>
+
+    <section class="view" id="v-products">
+      <div class="card t2">
+        <div class="ph2"><div><h3>Flowers &amp; today's prices</h3><p class="hint2">Change a price or stock right in the table — the website updates straight away. Use <b>Edit</b> for the photo and details.</p></div>
+          <div class="acts"><label class="sq"><svg class="i"><use href="#a-search"/></svg><input id="qProd" type="search" placeholder="Search flowers…" aria-label="Search flowers"/></label><button class="b1" id="addProd" type="button"><svg class="i"><use href="#a-plus"/></svg>Add flower</button></div></div>
+        <div class="chips cpr" id="cProd"></div>
+        <div class="tw"><table class="pt"><thead><tr><th>Flower</th><th>Price</th><th>Stock</th><th>Shown</th><th></th></tr></thead><tbody id="tProd"></tbody></table></div></div>
+    </section>
+
+    <section class="view" id="v-enq">
+      <div class="card t3"><div class="ch"><h3>Quote requests &amp; enquiries</h3></div><div id="lEnq" class="enq"></div></div>
+    </section>
+
+    <section class="view" id="v-settings">
+      <div class="card t4"><div class="ch"><h3>Shop details</h3><small>Shown on the website header, footer and WhatsApp buttons</small></div>
+        <form id="setForm" class="pg2" autocomplete="off">
+          <label class="fl">Shop name<input id="sName" required/></label>
+          <label class="fl">WhatsApp number (orders)<input id="sWa" inputmode="tel" placeholder="919949179933" required/><small class="mut">Country code + number, digits only. Every "Order on WhatsApp" button on the site uses this.</small></label>
+          <label class="fl">Phone shown on site<input id="sPhone" placeholder="+91 99491 79933"/></label>
+          <label class="fl">Opening hours<input id="sHours" placeholder="Every day · 5:00 AM – 9:00 PM"/></label>
+          <label class="fl w2">Address<input id="sAddr"/></label>
+          <label class="fl w2">Delivery note<input id="sDel" placeholder="Same-day in Guntur — charge confirmed on WhatsApp"/></label>
+          <label class="fl">Delivery charge (₹)<input id="sCharge" type="number" min="0" step="1"/></label>
+          <label class="fl">Minimum order (₹)<input id="sMin" type="number" min="0" step="1"/></label>
+          <label class="fl">WhatsApp greeting (pre-filled text)<input id="sGreet"/></label>
+          <label class="fl">Reply overdue after (minutes)<input id="sOver" type="number" min="5" step="5"/><small class="mut">Leads waiting longer than this are flagged red.</small></label>
+          <label class="ck w2"><input id="sCapture" type="checkbox"/> Ask visitors for name &amp; phone before opening WhatsApp</label>
+          <div class="mb w2"><button class="b1" id="sSave" type="submit">Save settings</button><span id="sMsg" class="mut"></span></div>
+        </form></div>
+    </section>
+    </div>
+  </div>
+</div>
+<div class="shade" id="shade"></div>
+<div class="md" id="md"><div class="mdc" id="mdBody"></div></div>
+<div class="toast" id="toast" role="status"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="/js/supabase-config.js"></script>
+<script src="/js/admin.js"></script>
+</body>
+</html>

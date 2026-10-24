@@ -16,7 +16,8 @@
   function hdr() { var mx = document.documentElement.scrollHeight - innerHeight; sp.style.width = (mx > 0 ? scrollY / mx * 100 : 0) + '%'; $('#hd').classList.toggle('stuck', scrollY > 40); up.classList.toggle('on', scrollY > 600); }
   addEventListener('scroll', hdr, { passive: true }); hdr();
   var yr = $('#yr'); if (yr) yr.textContent = new Date().getFullYear();
-  function menu(o) { $('#nv').classList.toggle('on', o); $('#sh2').classList.toggle('on', o); }
+  function menu(o) { $('#nv').classList.toggle('on', o); $('#sh2').classList.toggle('on', o); document.body.classList.toggle('mo', o); }
+  (function () { var nv = $('#nv'); if (!nv || nv.querySelector('.nvx')) return; var x = document.createElement('button'); x.type = 'button'; x.className = 'nvx'; x.setAttribute('aria-label', 'Close'); x.innerHTML = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>'; x.onclick = function () { menu(false); }; nv.insertBefore(x, nv.firstChild); })();
   $('#bt').onclick = function () { menu(!$('#nv').classList.contains('on')); }; $('#sh2').onclick = function () { menu(false); };
   var cb = $('#cb'); if (cb) cb.onclick = function () { location.href = 'index.html#shop'; };
   var nl = $('#nlf'); if (nl) nl.addEventListener('submit', function (e) { e.preventDefault(); window.open('https://wa.me/919949179933?text=' + encodeURIComponent('Hi! Please add me to your offers list. My number: ' + $('#nlp').value), '_blank'); });

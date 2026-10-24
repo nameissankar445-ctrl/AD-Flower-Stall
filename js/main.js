@@ -11,6 +11,7 @@
   if (B) B.settings().then(function (S) { var w = S && S.business && String(S.business.whatsapp || '').replace(/\D/g, ''); if (w) PHONE = w; });
   var wa = function (m, o) {
     if (B) { var ref = B.lead(Object.assign({ message: m }, o || {})); m += '\nRef: ' + ref; }
+    var L = window.ADFS_LANG; if (L && L.code !== 'en') m += '\nCustomer language: ' + L.name;
     window.open('https://wa.me/' + PHONE + '?text=' + encodeURIComponent(m), '_blank');
   };
 
@@ -88,6 +89,23 @@
     draw(); render();
   });
 
+  /* "added to order" popup: delivery charges are applicable, confirmed by distance. Stays until dismissed. */
+  function addNote(x) {
+    if ($('#dr').classList.contains('on')) return;
+    var n = $('#adn');
+    if (!n) {
+      n = document.createElement('div'); n.id = 'adn'; n.className = 'adn'; n.setAttribute('role', 'alertdialog'); n.setAttribute('aria-modal', 'true'); n.setAttribute('aria-labelledby', 'adt');
+      n.innerHTML = '<div class="adc"><span class="adi"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></span><h3 id="adt">Added to your order</h3><p class="adp">Delivery charges are applicable and will be confirmed based on the distance.</p><div class="ada"><button type="button" class="adk">Continue shopping</button><button type="button" class="adv">View order</button></div></div>';
+      document.body.appendChild(n);
+      var close = function () { n.classList.remove('on'); document.body.classList.remove('lock'); };
+      n.querySelector('.adk').onclick = close;
+      n.querySelector('.adv').onclick = function () { close(); drawer(true); };
+      n.addEventListener('click', function (e) { if (e.target === n) close(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    }
+    n.classList.add('on'); document.body.classList.add('lock');
+    setTimeout(function () { var v = n.querySelector('.adv'); if (v) v.focus(); }, 60);
+  }
   /* order drawer */
   function render() {
     var n = 0, t = 0, ids = Object.keys(cart);
@@ -105,7 +123,7 @@
     var qb = e.target.closest('[data-q]');
     if (qb) { var bb = qb.parentNode.querySelector('b'); bb.textContent = Math.max(1, Math.min(50, (+bb.textContent || 1) + (+qb.dataset.q))); return; }
     var a = e.target.closest('[data-add]');
-    if (a) { var id = a.dataset.add, qe = a.parentNode.querySelector('b'), k = +qe.textContent || 1; cart[id] = (cart[id] || 0) + k; render(); if (B) B.track('add_to_cart', { product_id: +id, value: k * get(id).p, category: get(id).c }); qe.textContent = 1; a.textContent = 'Added ✓'; a.classList.add('ok2'); setTimeout(function () { a.textContent = 'Add to order'; a.classList.remove('ok2'); }, 1100); }
+    if (a) { var id = a.dataset.add, qe = a.parentNode.querySelector('b'), k = +qe.textContent || 1; cart[id] = (cart[id] || 0) + k; render(); if (B) B.track('add_to_cart', { product_id: +id, value: k * get(id).p, category: get(id).c }); qe.textContent = 1; a.textContent = 'Added ✓'; a.classList.add('ok2'); setTimeout(function () { a.textContent = 'Add to order'; a.classList.remove('ok2'); }, 1100); addNote(get(id)); }
   });
   $('#di').addEventListener('click', function (e) {
     var b = e.target.closest('button'); if (!b) return;
@@ -139,9 +157,12 @@
   });
 
   /* nav + misc */
-  function menu(o) { $('#nv').classList.toggle('on', o); $('#sh2').classList.toggle('on', o); }
+  function menu(o) { $('#nv').classList.toggle('on', o); $('#sh2').classList.toggle('on', o); document.body.classList.toggle('mo', o); }
+  (function () { var nv = $('#nv'); if (!nv || nv.querySelector('.nvx')) return; var x = document.createElement('button'); x.type = 'button'; x.className = 'nvx'; x.setAttribute('aria-label', 'Close'); x.innerHTML = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>'; x.onclick = function () { menu(false); }; nv.insertBefore(x, nv.firstChild); })();
   $('#bt').onclick = function () { menu(!$('#nv').classList.contains('on')); };
   $$('#nv a').forEach(function (a) { a.addEventListener('click', function () { menu(false); }); });
+  /* logo / Home: scroll to the top and keep the address clean (no #top) */
+  $$('a.lg,#nv a[href="#top"]').forEach(function (a) { a.addEventListener('click', function (e) { e.preventDefault(); menu(false); window.scrollTo({ top: 0, behavior: 'smooth' }); if (location.hash) history.replaceState(null, '', location.pathname + location.search); }); });
   var up = $('#up'); up.onclick = function () { window.scrollTo({ top: 0, behavior: 'smooth' }); };
   var spy = [['top', '#top'], ['shop', '#shop'], ['occasions', '#occasions'], ['reviews', '#reviews'], ['visit', '#visit']];
   function hdr() {

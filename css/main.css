@@ -692,3 +692,171 @@ html.np #so,html.np .cs:has(#so),html.np .df .tt{display:none!important}
 html.np .tool .tr2{justify-content:flex-end}
 html.np #so+.cs{display:none!important}
 html.np .srch{flex:1}html.np .srch input{width:100%;min-width:260px}
+
+/* ===== v38: Android fix — off-canvas panels must not widen the page ===== */
+html{overflow-x:hidden}
+.dr{right:0;transform:translateX(105%);visibility:hidden;transition:transform .35s,visibility 0s linear .35s}
+.dr.on{transform:none;visibility:visible;transition:transform .35s,visibility 0s}
+@media(max-width:900px){
+ .nv{right:0;transform:translateX(105%);visibility:hidden;transition:transform .35s,visibility 0s linear .35s}
+ .nv.on{transform:none;visibility:visible;transition:transform .35s,visibility 0s}
+}
+@media(max-width:900px){.tool{flex-wrap:nowrap}.tool .tb,.tool .tr2{max-width:100%}}
+@media(max-width:600px){.tool .tb{max-width:none}}
+body.mo .hd{z-index:155}
+
+/* ===== v39: language switcher + Indic / Urdu typography ===== */
+.lgsw{position:relative}
+.lgb{display:inline-flex;align-items:center;gap:.4rem;height:44px;padding:0 .8rem;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink);font:inherit;font-weight:700;font-size:.82rem;cursor:pointer;transition:.2s}
+.lgb:hover,.lgsw.open .lgb{border-color:#C8161D;color:#C8161D}
+.lgb .ic{width:1.15rem;height:1.15rem}
+.lgm{position:absolute;inset-inline-end:0;top:calc(100% + 8px);min-width:170px;list-style:none;background:#fff;border:1px solid #F0E2B6;border-radius:18px;padding:.4rem;box-shadow:0 22px 50px rgba(120,60,20,.22);opacity:0;visibility:hidden;transform:translateY(-6px);transition:.2s;z-index:300}
+.lgsw.open .lgm{opacity:1;visibility:visible;transform:none}
+.lgm button{display:block;width:100%;text-align:start;padding:.65rem .95rem;border:0;border-radius:12px;background:none;font:inherit;font-size:.95rem;font-weight:600;color:var(--ink);cursor:pointer}
+.lgm button:hover{background:#FFF3D0}.lgm button.on{background:#FFE8E8;color:#C8161D}
+@media(max-width:1000px){.lgb{height:42px;padding:0 .7rem}.hr2{gap:.45rem}}
+@media(max-width:380px){.lgb .lgc{display:none}.lgb{padding:0 .65rem}}
+
+html[lang=te]{--sans:'Noto Sans Telugu','Plus Jakarta Sans',sans-serif;--serif:'Noto Serif Telugu','Noto Sans Telugu',serif}
+html[lang=hi]{--sans:'Noto Sans Devanagari','Plus Jakarta Sans',sans-serif;--serif:'Noto Serif Devanagari','Noto Sans Devanagari',serif}
+html[lang=ur]{--sans:'Noto Sans Arabic','Segoe UI',Tahoma,sans-serif;--serif:'Noto Naskh Arabic','Noto Sans Arabic',serif}
+html[lang=ta]{--sans:'Noto Sans Tamil','Plus Jakarta Sans',sans-serif;--serif:'Noto Serif Tamil','Noto Sans Tamil',serif}
+html[lang=kn]{--sans:'Noto Sans Kannada','Plus Jakarta Sans',sans-serif;--serif:'Noto Serif Kannada','Noto Sans Kannada',serif}
+html[lang=ml]{--sans:'Noto Sans Malayalam','Plus Jakarta Sans',sans-serif;--serif:'Noto Serif Malayalam','Noto Sans Malayalam',serif}
+html.xl *{letter-spacing:normal!important;text-transform:none!important}
+html.xl body{line-height:1.8}
+html.xl h1,html.xl h2,html.xl h3{line-height:1.38}
+html.xl em,html.xl i{font-style:normal}
+html.xl .hero .hc h1{font-size:clamp(2rem,4.2vw,3.7rem)}
+html.xl .sh h2{font-size:clamp(1.6rem,3.2vw,2.5rem)}
+html.xl .pc h3{font-size:1.05rem;line-height:1.4}
+html.xl .eb2,html.xl .eyeb,html.xl .pc .bdg{font-size:.78rem}
+html.xl .bp,html.xl .bw,html.xl .tb button,html.xl .chs button{line-height:1.5}
+html.xl .nv a{font-size:.9rem}
+
+/* right-to-left (Urdu) */
+html[dir=rtl] .hero .hc,html[dir=rtl] .hero .eyeb,html[dir=rtl] .hero .hsub{text-align:right}
+html[dir=rtl] .hero .hc h1{text-align:right}
+html[dir=rtl] .fi .ic,html[dir=rtl] .srch .ic{left:auto;right:.95rem}
+html[dir=rtl] .qw .fi input{padding-left:1rem;padding-right:2.7rem}
+html[dir=rtl] .srch input{padding:.68rem 2.6rem .68rem 1rem}
+html[dir=rtl] .fbd.f1{left:auto;right:-9%}
+html[dir=rtl] .fbd.f2{right:auto;left:-7%}
+html[dir=rtl] .mpin{left:auto;right:14px}
+html[dir=rtl] .csl{right:auto;left:0}
+html[dir=rtl] .vc:hover{transform:translateX(-6px)}
+html[dir=rtl] .nav-arrow,html[dir=rtl] .bp .ic:last-child,html[dir=rtl] .cta .ic{transform:scaleX(-1)}
+html[dir=rtl] input[type=tel],html[dir=rtl] input[type=date]{direction:ltr;text-align:right}
+html[dir=rtl] .tb{direction:rtl}
+html[dir=rtl] .fxg,html[dir=rtl] .fb{text-align:right}
+html[dir=rtl] .pc .ac,html[dir=rtl] .qs{direction:ltr}
+/* RTL-safe skip link: park it above the page instead of 999px to the left (that widened right-to-left pages) */
+.skip{left:0!important;top:0;transform:translateY(-220%);transition:transform .2s}
+.skip:focus{left:0!important;top:8px;transform:none}
+/* long translations must wrap instead of stretching the layout */
+.gr{grid-template-columns:minmax(0,1fr)}
+@media(min-width:901px){.gr{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}}
+html.xl .gbt a,html.xl .vbt a,html.xl .hbn a{white-space:normal!important;text-align:center;justify-content:center}
+html.xl .gsteps span,html.xl .chp li,html.xl .qa li{min-width:0;overflow-wrap:anywhere}
+.ck{max-width:calc(100vw - 20px)}
+html.xl .ck{flex-wrap:wrap;justify-content:center;border-radius:22px;padding:.7rem .9rem;row-gap:.5rem}
+html.xl .ck .ckt{flex:1 1 100%;text-align:center}
+html.xl .ck .sep{display:none}
+@media(max-width:700px){
+ html.xl .ck{display:flex;flex-wrap:wrap;left:10px;right:10px;transform:none;width:auto;max-width:none;justify-content:center;gap:.45rem;padding:.7rem .75rem;border-radius:20px}
+ html.xl .ck .ic{flex:none}
+ html.xl .ck .ckt{flex:1 1 calc(100% - 2.5rem);text-align:start;font-size:.82rem}
+ html.xl .ck button{flex:1 1 auto;min-width:0;white-space:normal;line-height:1.35;padding:.55rem .7rem}
+}
+
+/* ===== v40: calm, pleasant polish (same layout; quieter motion, softer surfaces, better spacing & tap targets) ===== */
+::selection{background:#FFD9A0;color:#5A1A10}
+html{-webkit-text-size-adjust:100%;scrollbar-color:#E6C879 #FFF8E6}
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;color:#33241C}
+
+/* mobile menu: close button */
+.nvx{display:none}
+@media(max-width:1000px){
+ .nvx{display:grid;place-items:center;position:absolute;top:14px;inset-inline-end:14px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;transition:.2s;z-index:2}
+ .nvx:hover,.nvx:active{background:#C8161D;border-color:#C8161D;color:#fff}
+ .nvx .ic{width:1.15rem;height:1.15rem}
+ .nv{padding-top:5rem}
+}
+
+/* quieter motion: no endlessly looping effects */
+.chp li,.fbd,.wa{animation:none!important}
+.hbn .bp::after,.cta::after{display:none}
+.hc h1 em .i{animation:none!important;background-position:30% 0}
+.hc::before{animation:none;background-size:100% 100%}
+
+/* softer surfaces & consistent radii */
+.pc{border-radius:24px;box-shadow:0 8px 26px rgba(120,60,20,.08)}
+.pc:hover{box-shadow:0 20px 44px rgba(120,60,20,.15)}
+.ot{border-radius:22px}
+.qw,.gr,.vc,.rsum{box-shadow:0 14px 38px rgba(120,60,20,.09)}
+.bp,.bw{border-radius:14px;min-height:48px}
+.bp{box-shadow:0 8px 20px rgba(200,22,29,.22)}
+
+/* spacing & readability */
+.sc{padding:clamp(3.4rem,7vw,6rem) 0}
+.sh p{max-width:38rem;margin-inline:auto;font-size:1.02rem;color:#6B5548}
+.sh h2{letter-spacing:-.012em}
+.pc .ds{color:#6B5548}
+.tb button{min-height:42px}
+.pc .qs button{width:40px;height:40px}
+
+/* floating buttons: smaller, calmer, less in the way */
+.wa{width:52px;height:52px;box-shadow:0 6px 18px rgba(31,168,85,.35)}.wa .ic{width:27px;height:27px}
+.up{width:44px;height:44px;opacity:.95}
+@media(max-width:700px){.wa{bottom:14px;left:14px}.up{bottom:78px;right:14px}}
+
+/* scroll reveal: gentler */
+.rv{transition-duration:.7s}
+
+/* ===== v42: language menu redesign + "added to order" delivery popup ===== */
+.lgm{padding:.5rem;min-width:230px;border-radius:20px}
+.lgm ul{list-style:none;display:grid;gap:2px}
+.lgh{padding:.55rem .8rem .5rem;font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8A7762}
+.lgh span{text-transform:none;letter-spacing:0}
+.lgm li button{display:grid;grid-template-columns:1fr auto;grid-template-areas:"n c" "s c";align-items:center;column-gap:.6rem;padding:.6rem .85rem;border-radius:13px}
+.lgm li button b{grid-area:n;font-size:1rem;font-weight:700;line-height:1.35}
+.lgm li button small{grid-area:s;font-size:.74rem;font-weight:500;color:#8A7762;line-height:1.2}
+.lgm li button .ck2{grid-area:c;width:1.2rem;height:1.2rem;fill:none;stroke:#C8161D;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;opacity:0}
+.lgm li button.on{background:#FFF0E0}.lgm li button.on b{color:#C8161D}.lgm li button.on .ck2{opacity:1}
+.lgm li button:hover{background:#FFF6E6}
+@media(max-width:700px){
+ .lgsw.open::before{content:"";position:fixed;inset:0;background:rgba(40,20,10,.45);z-index:290}
+ .lgm{position:fixed;inset-inline:0;bottom:0;top:auto;min-width:0;border-radius:24px 24px 0 0;padding:.4rem .8rem 1.1rem;transform:translateY(105%);opacity:1;visibility:hidden;transition:transform .3s,visibility 0s linear .3s;z-index:300;max-height:80vh;overflow:auto}
+ .lgsw.open .lgm{transform:none;visibility:visible;transition:transform .3s,visibility 0s}
+ .lgh{text-align:center;padding:.9rem .5rem .6rem;position:relative}
+ .lgh::before{content:"";position:absolute;top:.35rem;left:50%;width:42px;height:4px;margin-left:-21px;border-radius:4px;background:#E2D4B2}
+ .lgm li button{padding:.8rem 1rem}
+}
+
+.adn{position:fixed;left:50%;bottom:22px;z-index:130;width:min(440px,calc(100vw - 24px));display:flex;gap:.8rem;align-items:flex-start;background:#fff;border:1px solid #F0E2B6;border-radius:20px;padding:1rem 2.6rem 1rem 1rem;box-shadow:0 20px 50px rgba(90,40,10,.28);opacity:0;visibility:hidden;transform:translate(-50%,24px);transition:opacity .3s,transform .35s,visibility 0s linear .35s}
+.adn.on{opacity:1;visibility:visible;transform:translate(-50%,0);transition:opacity .3s,transform .35s,visibility 0s}
+.adi{width:2.4rem;height:2.4rem;border-radius:50%;background:linear-gradient(135deg,#34C77B,#12936F);display:grid;place-items:center;flex:none}
+.adi .ic{width:1.2rem;height:1.2rem;stroke:#fff;stroke-width:2.6}
+.adb{min-width:0}.adb b{display:block;color:#2A1A14;font-size:.98rem;line-height:1.3}
+.adp{margin-top:.2rem;font-size:.86rem;color:#6B5548;line-height:1.5}
+.adv{margin-top:.6rem;padding:.5rem 1rem;border:0;border-radius:99px;background:linear-gradient(135deg,#E63946,#C8161D);color:#fff;font:inherit;font-weight:700;font-size:.82rem;cursor:pointer}
+.adx{position:absolute;top:.6rem;inset-inline-end:.6rem;width:2rem;height:2rem;border-radius:50%;border:0;background:#F6EFDD;color:#6B5548;display:grid;place-items:center;cursor:pointer}
+.adx .ic{width:1rem;height:1rem}
+@media(max-width:700px){.adn{bottom:78px}}
+html[dir=rtl] .adn{padding:1rem 1rem 1rem 2.6rem}
+.dnote{margin:.1rem 0 .6rem;padding:.6rem .8rem;border-radius:12px;background:#FFF6DC;border:1px solid #F4E2A8;color:#7A5200;font-size:.8rem;line-height:1.45}
+@media(prefers-reduced-motion:reduce){.adn,.lgm{transition:none}}
+
+/* v43: delivery popup = centred dialog (stays until dismissed) */
+.adn{position:fixed;inset:0;left:0;bottom:auto;width:auto;transform:none;z-index:400;display:grid;place-items:center;padding:1rem;background:rgba(40,20,10,.5);border:0;border-radius:0;box-shadow:none;opacity:0;visibility:hidden;transition:opacity .25s,visibility 0s linear .25s}
+.adn.on{opacity:1;visibility:visible;transform:none;transition:opacity .25s,visibility 0s}
+.adc{position:relative;width:min(420px,100%);background:#fff;border-radius:26px;padding:1.8rem 1.6rem 1.5rem;text-align:center;box-shadow:0 30px 70px rgba(60,30,10,.35);transform:translateY(14px) scale(.97);transition:transform .3s}
+.adn.on .adc{transform:none}
+.adc .adi{width:3.2rem;height:3.2rem;margin:0 auto .8rem}.adc .adi .ic{width:1.6rem;height:1.6rem}
+.adc h3{font-size:1.35rem;color:#A3191F;line-height:1.3}
+.adc .adp{margin:.7rem 0 1.3rem;padding:.8rem 1rem;border-radius:14px;background:#FFF6DC;border:1px solid #F4E2A8;color:#7A5200;font-size:.95rem;line-height:1.55}
+.ada{display:flex;gap:.6rem;flex-wrap:wrap}
+.ada button{flex:1 1 140px;min-height:46px;padding:.7rem 1rem;border-radius:14px;font:inherit;font-weight:700;font-size:.92rem;cursor:pointer;border:1.5px solid #F0E2B6;background:#fff;color:#A3191F}
+.ada .adv{margin:0;border:0;background:linear-gradient(135deg,#E63946,#C8161D);color:#fff;box-shadow:0 8px 18px rgba(200,22,29,.25)}
+html[dir=rtl] .adn{padding:1rem}
+.adn{bottom:0!important;height:100%}
